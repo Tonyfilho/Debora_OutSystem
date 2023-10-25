@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -27,10 +29,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { environment } from '../environments/environment';
 import { StartComponentsModule } from './_start-components/start-components.module';
 
-// import {AngularFireModule} from '@angular/fire';
-// import {AngularFireStorageModule} from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+//import {AngularFireModule} from '@angular/fire';
+//import {AngularFireStorageModule} from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -64,7 +68,11 @@ import { StartComponentsModule } from './_start-components/start-components.modu
     ReactiveFormsModule,
     StartComponentsModule,
     OutsystemModule,
-   /* AngularFirestoreModule,*/
+    AngularFireAuthModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
