@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './body/footer/footer.component';
 import { HeaderComponent } from './body/header/header.component';
+import { MainComponent } from './body/main/main.component';
 
 
 
@@ -14,6 +15,7 @@ import { HeaderComponent } from './body/header/header.component';
     HeaderComponent,
     FooterComponent,
     BodyComponent,
+    MainComponent,
 
   ],
   imports: [
