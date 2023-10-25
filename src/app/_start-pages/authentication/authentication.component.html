@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <form action="" >
     <label for="email" class="form-label">Email</label>
     <input
@@ -21,14 +21,31 @@
       Your Google Password.
     </div>
   </form>
-</div>
-<!-- <div class="login container">
-
-  <h2>Sign In Just Gmail Pls:</h2>
-
-  <div id="firebaseui-auth-container" class="auth-container">
-
-
-  </div>
-
 </div> -->
+
+
+<div class="container-form">
+
+  <form action="" [formGroup]="authenticationForm" (ngSubmit)="onSubmit()" *ngIf="!isLodingSpinner" >
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your Gmail</mat-label>
+        <input matInput placeholder="...@gmail.com" required formControlName="email">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Password</mat-label>
+        <input matInput placeholder="Min 8 Caracter" formControlName="password">
+      </mat-form-field>
+    </p>
+
+    <div class="form-button-row">
+      <button mat-raised-button color="warn" type="button">Cancel LoginIn</button>
+      <button mat-raised-button color="primary" type="submit">LoginIn</button>
+    </div>
+
+
+  </form>
+</div>

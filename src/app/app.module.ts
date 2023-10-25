@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -30,11 +29,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { environment } from '../environments/environment';
-import { StartComponentsModule } from './_start-components/start-components.module';
+
 
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-//import {AngularFireModule} from '@angular/fire';
-//import {AngularFireStorageModule} from '@angular/fire/storage';
+import { AuthenticationModule } from './_start-pages/authentication/authentication.module';
+import { StartComponentsModule } from './_start-pages/start-components/start-components.module';
+
 
 @NgModule({
   declarations: [
@@ -66,11 +66,13 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    AuthenticationModule,
     StartComponentsModule,
+
     OutsystemModule,
     AngularFireAuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
+   // provideAuth(() => getAuth()),
 
 
   ],
